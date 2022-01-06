@@ -1,5 +1,5 @@
-@include('layouts.admin');
+@extends('layouts.admin');
 
-@section('content')
-   <h1>Hello</h1>
+@section('main_content')
+         This is admin dashboard
 @endsection
