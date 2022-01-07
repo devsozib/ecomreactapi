@@ -123,6 +123,7 @@
     </div>
   </div>
 
+ 
 
 
   <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
@@ -132,7 +133,12 @@
   <!-- Plugin for the momentJs  -->
   <script src="{{ asset('admin/js/plugins/plugins/moment.min.js') }}"></script>
   <!--  Plugin for Sweet Alert -->
-  <script src="{{ asset('admin/js/plugins/plugins/sweetalert2.js') }}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  @if (session('status'))
+  <script>
+    swal("{{ session('status') }}");
+    </script>
+@endif
   <!-- Forms Validations Plugin -->
   <script src="{{ asset('admin/js/plugins/plugins/jquery.validate.min.js') }}"></script>
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
@@ -168,8 +174,8 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ asset('admin/js/material-dashboard.min.js') }}" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="{{ asset('admin/js/demo.js') }}../assets/demo/demo.js"></script>
-
+  <script src="{{ asset('admin/js/demo.js') }}"></script>
+  
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -467,5 +473,7 @@
 
     });
   </script>
+
+  @yield('scripts')
 </body>
 </html>

@@ -8,8 +8,8 @@
          <div class="col-md-12">
            <div class="card card-plain">
              <div class="card-header card-header-primary">
-               <h4 class="card-title mt-0">All Categories is here</h4>
-               <p class="card-category">Categories</p>
+               <h4 class="card-title mt-0">All products is here</h4>
+               <p class="card-category">Products</p>
              </div>
              <div class="card-body">
                <div class="table-responsive">
@@ -19,8 +19,17 @@
                        ID
                      </th>
                      <th>
+                      Category
+                    </th>
+                     <th>
                        Name
                      </th>
+                     <th>
+                       Sale Price
+                     </th>
+                     <th>
+                      Regular Price
+                    </th>
                      <th>
                        Image
                      </th>
@@ -32,7 +41,7 @@
                      </th>
                    </thead>
                    <tbody>
-                        @foreach ($categories as $item )
+                        @foreach ($products as $item )
                              
                         
                      <tr>
@@ -40,17 +49,26 @@
                         {{ $item->id }}
                        </td>
                        <td>
+                        {{ $item->category->name }}
+                       </td>
+                       <td>
                         {{ $item->name }}
                        </td>
                        <td>
-                        <img style="width: 50px;" src="{{ asset('assets/uploads/category/'.$item->image) }}" alt="Image here">
+                        {{ $item->sale_price }}
+                       </td>
+                       <td>
+                        {{ $item->regular_price }}
+                       </td>
+                       <td>
+                        <img style="width: 50px;" src="{{ asset('assets/uploads/product/'.$item->image) }}" alt="Image here">
                        </td>
                        <td>
                          {{ $item->description }}
                         </td>
                        <td>
-                        <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="{{ url('delete-category/'.$item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="{{ url('edit-product/'.$item->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ url('delete-product/'.$item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                        </td>
                       
                      </tr>
